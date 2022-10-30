@@ -2,6 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
+*{
+  box-sizing: border-box;
+}
 html, body, #__next {
   @apply h-full w-full;
+}
+
+@layer components {
+  .button {
+    @apply cursor-pointer;
+  }
+  .button.circle {
+    @apply rounded-full;
+  }
+  .button.primary {
+  }
+  .search-bar {
+  }
 }

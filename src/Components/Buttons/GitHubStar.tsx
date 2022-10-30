@@ -9,13 +9,17 @@ export const GitHubStarButton = (
   const { className } = props;
   return (
     <div
-      className={`flex ring-1 ring-gray-400 rounded cursor-pointer items-center ${className}`}
+      className={`flex ring-1 ring-gray-400 text-sm rounded cursor-pointer items-center ${className}`}
     >
-      <div className="flex px-1 hover:bg-gray-100 items-center">
-        <GitHubIcon className="flex items-center" width={28} height={28} />
+      <div className="flex px-1 bg-gray-100 font-semibold text-gray-600 items-center">
+        <GitHubIcon
+          className="flex fill-gray-600 items-center"
+          width={28}
+          height={28}
+        />
         <span>Stars</span>
       </div>
-      <div className="border-l hover:bg-gray-100 border-gray-400 px-1 items-center flex">
+      <div className="border-l bg-gray-50 border-gray-400 px-1 items-center flex">
         0
       </div>
     </div>

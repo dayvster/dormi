@@ -1,4 +1,5 @@
 import CollectionsLayout from "../Layouts/CollectionsLayout";
+import DefaultLayout from "../Layouts/DefaultLayout";
 import { NextPageWithLayout } from "./_app";
 
 export const Home: NextPageWithLayout = () => {
@@ -10,6 +11,6 @@ export const Home: NextPageWithLayout = () => {
 };
 
 Home.getLayout = (page) => {
-  return <CollectionsLayout>{page}</CollectionsLayout>;
+  return <DefaultLayout>{page}</DefaultLayout>;
 };
 export default Home;

@@ -5,14 +5,19 @@ module.exports = {
     "./src/Components/**/*.{js,ts,jsx,tsx}",
     "./src/Layouts/**/*.{js,ts,jsx,tsx}",
   ],
+  darkMode: "class",
   theme: {
-    extend: {},
+    extend: {
+      width: {
+        leftmenu: "275px",
+      },
+    },
   },
   plugins: [require("daisyui")],
 
   daisyui: {
     styled: true,
-    themes: ["light"],
+    themes: ["winter"],
     base: true,
     utils: true,
     logs: true,

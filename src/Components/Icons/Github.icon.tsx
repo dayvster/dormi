@@ -2,15 +2,13 @@ import React from "react";
 export interface IProps {
   width?: number;
   height?: number;
-  color?: string;
   className?: string;
 }
 export const GitHubIcon = (props: React.PropsWithChildren<IProps>) => {
-  const { width = 24, height = 24, color = "black", className } = props;
+  const { width = 24, height = 24, className } = props;
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      fill="#000000"
       viewBox="0 0 30 30"
       width={width}
       height={height}
@@ -30,7 +28,6 @@ export const GitHubIcon = (props: React.PropsWithChildren<IProps>) => {
           5.097C18.199,20.49,19,22.1,19,23.313v2.734 c0,0.104-0.023,0.179-0.035,0.268C23.641,24.676,27,
           20.236,27,15C27,8.373,21.627,3,15,3z
         `}
-        fill={color}
       />
     </svg>
   );
