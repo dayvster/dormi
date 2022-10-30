@@ -2,6 +2,7 @@ import React from "react";
 export interface IButtonProps {
   icon?: JSX.Element;
   iconPosition?: "left" | "right";
+  noBackground?: boolean;
   className?: string;
   type?: "button" | "icon" | "text" | "outline";
   shape?: "circle" | "square" | "rounded";
@@ -14,13 +15,16 @@ export const Button = (props: React.PropsWithChildren<IButtonProps>) => {
     onClick,
     type = "button",
     iconPosition = "left",
+    noBackground = false,
     shape = "rounded",
     icon = <></>,
   } = props;
   return (
     <div
       onClick={onClick}
-      className={`button ${className} flex items-center ${shape}`}
+      className={`button ${className} flex items-center ${shape}  ${
+        noBackground ? "bg-none fill-gray-800" : "bg-black"
+      } fill-white `}
     >
       {iconPosition === "left" && icon}
       {type === "button" && (

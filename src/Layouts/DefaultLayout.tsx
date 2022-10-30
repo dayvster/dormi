@@ -1,5 +1,6 @@
 import React from "react";
 import LeftMenu from "../Components/LeftMenu/LeftMenu";
+import Modal from "../Components/Modal/Modal";
 import Navi from "../Components/Navi/Navi";
 export interface IProps {}
 export const DefaultLayout = (props: React.PropsWithChildren<IProps>) => {
@@ -11,6 +12,7 @@ export const DefaultLayout = (props: React.PropsWithChildren<IProps>) => {
         <LeftMenu></LeftMenu>
         <div className="content">{children}</div>
       </div>
+      <Modal />
     </div>
   );
 };
