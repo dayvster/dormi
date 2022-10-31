@@ -10,14 +10,7 @@ html, body, #__next {
 }
 
 @layer components {
-  .button {
-    @apply cursor-pointer;
-  }
-  .button.circle {
-    @apply rounded-full;
-  }
-  .button.primary {
-  }
-  .search-bar {
+  .btn {
+    @apply h-[2.2rem] min-h-[2rem] cursor-pointer;
   }
 }

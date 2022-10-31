@@ -8,7 +8,7 @@ export const Logo = (props: React.PropsWithChildren<IProps>) => {
   return (
     <div className={className}>
       <Link href="/">
-        <h1 className="font-bold cursor-pointer text-primary">[ DORMI ]</h1>
+        <h1 className="font-bold cursor-pointer text-primary">DORMI</h1>
       </Link>
     </div>
   );

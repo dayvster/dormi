@@ -7,10 +7,10 @@ export const DefaultLayout = (props: React.PropsWithChildren<IProps>) => {
   const { children } = props;
   return (
     <div className="flex flex-col h-full w-full">
-      <Navi></Navi>
+      <Navi />
       <div className="flex w-full h-full">
         <LeftMenu></LeftMenu>
-        <div className="content">{children}</div>
+        <div className="content m-4">{children}</div>
       </div>
       <Modal />
     </div>

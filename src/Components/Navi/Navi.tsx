@@ -1,9 +1,9 @@
 import Link from "next/link";
-import React, { useEffect } from "react";
+import React from "react";
 import GitHubStarButton from "../Buttons/GitHubStar";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGear } from "@fortawesome/free-solid-svg-icons";
 import Dropdown from "../Dropdown/Dropdown";
-import GitHubIcon from "../Icons/Github.icon";
-import SettingsIcon from "../Icons/Settings.icon";
 import Logo from "../Logo/Logo";
 
 export interface IProps {}
@@ -12,7 +12,7 @@ export const Navi = (props: React.PropsWithChildren<IProps>) => {
   return (
     <div className="flex flex-row w-full py-2 px-4 border-b border-gray-300 items-center ">
       <Logo className="mr-2" />
-      <GitHubStarButton className="mr-2" />
+      <GitHubStarButton className="mx-4" />
       <nav className="flex flex-row space-x-2 font-semibold breadcrumbs">
         <ul>
           <li>
@@ -23,7 +23,7 @@ export const Navi = (props: React.PropsWithChildren<IProps>) => {
       <div className="flex ml-auto">
         <div className="dropdown dropdown-end cursor-pointer">
           <span tabIndex={0}>
-            <SettingsIcon />
+            <FontAwesomeIcon icon={faGear} />
           </span>
           <ul
             tabIndex={0}

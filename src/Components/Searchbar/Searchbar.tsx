@@ -9,7 +9,7 @@ export const Searchbar = (props: React.PropsWithChildren<ISearchbarProps>) => {
       <input
         placeholder="Search"
         type="text"
-        className="w-full py-1 px-2 border border-gray-300"
+        className="w-full py-1 px-2 border border-gray-300 "
       />
     </div>
   );
