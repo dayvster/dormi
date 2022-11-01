@@ -10,6 +10,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { faTrashCan, faPenToSquare } from "@fortawesome/free-regular-svg-icons";
 import { NewCollectionModal } from "../Modal/NewCollectionModal";
+import { CollectionsList } from "../CollectionsList/CollectionsList";
 
 export interface ILeftMenuProps {}
 export const LeftMenu = (props: React.PropsWithChildren<ILeftMenuProps>) => {

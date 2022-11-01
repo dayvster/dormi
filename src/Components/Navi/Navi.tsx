@@ -16,7 +16,7 @@ export const Navi = (props: React.PropsWithChildren<IProps>) => {
       <nav className="flex flex-row space-x-2 font-semibold breadcrumbs">
         <ul>
           <li>
-            <Link href="/">Collections</Link>
+            <Link href="/collections">Collections</Link>
           </li>
         </ul>
       </nav>

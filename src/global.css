@@ -11,6 +11,12 @@ html, body, #__next {
 
 @layer components {
   .btn {
-    @apply h-[2.2rem] min-h-[2rem] cursor-pointer;
+    @apply h-[2.2rem] min-h-[2rem] cursor-pointer capitalize;
   }
+}
+.collapse-title, :where(.collapse > input[type="checkbox"]){
+  @apply p-0;
+}
+.collapse-content{
+  @apply p-0;
 }
