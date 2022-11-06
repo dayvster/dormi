@@ -1,4 +1,5 @@
 import type { AppProps } from "next/app";
+import { ThemeProvider } from "next-themes";
 
 import "../global.css";
 import { ReactElement, ReactNode } from "react";
@@ -14,7 +15,11 @@ type AppPropsWithLayout = AppProps & {
 
 export const MyApp = ({ Component, pageProps }: AppPropsWithLayout) => {
   const getLayout = Component.getLayout ?? ((page) => page);
-  return getLayout(<Component {...pageProps} />);
+  return (
+    <ThemeProvider defaultTheme="lofi" themes={["dark", "lofi", "dormi"]}>
+      {getLayout(<Component {...pageProps} />)}
+    </ThemeProvider>
+  );
 };
 
 export default MyApp;

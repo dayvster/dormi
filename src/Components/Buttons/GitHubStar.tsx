@@ -9,9 +9,9 @@ export const GitHubStarButton = (
   const { className } = props;
   return (
     <div
-      className={`flex ring-1 ring-gray-400 text-sm rounded cursor-pointer items-center ${className}`}
+      className={`flex ring-1 border-base-400 text-sm rounded cursor-pointer items-center ${className}`}
     >
-      <div className="flex px-1 bg-gray-100 font-semibold text-gray-600 items-center">
+      <div className="flex px-1 bg-base-100 font-semibold text-gray-600 items-center">
         <GitHubIcon
           className="flex fill-gray-600 items-center"
           width={28}
@@ -19,7 +19,7 @@ export const GitHubStarButton = (
         />
         <span>Stars</span>
       </div>
-      <div className="border-l bg-gray-50 border-gray-400 px-1 items-center flex">
+      <div className="border-l bg-base-200 border-base-200 px-1 items-center flex">
         0
       </div>
     </div>

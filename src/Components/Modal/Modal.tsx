@@ -4,7 +4,7 @@ import { useModalStore } from "../../store/modalStore";
 export const Modal = () => {
   const modalStore = useModalStore((state) => state);
   const isOpen = modalStore.isOpen;
-  const backdropStyles = "bg-opacity-50 backdrop-blur-[2px] bg-gray-200";
+  const backdropStyles = "bg-opacity-50 backdrop-blur-[2px] bg-base-200";
 
   useEffect(() => {
     if (isOpen) {
@@ -26,7 +26,7 @@ export const Modal = () => {
         className={`${backdropStyles} w-full h-full absolute`}
         onClick={modalStore.close}
       ></div>
-      <div className="rounded-lg card shadow-lg bg-base-100 p-2 min-w-[320px] border border-gray-300">
+      <div className="rounded-lg card shadow-lg bg-base-100 p-2 min-w-[320px] border border-base-300">
         <div className="content">{modalStore.content}</div>
       </div>
     </div>

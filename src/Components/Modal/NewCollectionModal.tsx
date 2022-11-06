@@ -14,6 +14,7 @@ export const NewCollectionModal = (props: INewCollectionModalProps) => {
   useEffect(() => {
     inputRef.current?.focus();
     onkeyup = (e) => {
+      if (e.key === "Escape") closeModal();
       if (e.key === "Enter") handleSubmit();
     };
   }, []);
@@ -39,7 +40,7 @@ export const NewCollectionModal = (props: INewCollectionModalProps) => {
           placeholder="Collection Name"
           name="name"
           ref={inputRef}
-          className="input w-full max-w-xs border -mt-2 mb-4 border-gray-300"
+          className="input w-full max-w-xs border -mt-2 mb-4 border-base-300"
         />
       </div>
 
@@ -47,7 +48,7 @@ export const NewCollectionModal = (props: INewCollectionModalProps) => {
         <input type="checkbox" />
         <div className="collapse-title flex flex-col justify-center">
           <div className="text-sm text-center">Add more details</div>
-          <div className="flex justify-center border-b min-w-full w-full border-gray-300">
+          <div className="flex justify-center border-b min-w-full w-full border-base-300">
             <FontAwesomeIcon
               icon={faPlus}
               className="-mb-[9px] w-[13px] outline outline-white outline-4 bg-primary rounded-full p-0.5 text-white text-xs cursor-pointer"

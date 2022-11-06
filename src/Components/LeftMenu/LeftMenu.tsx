@@ -27,8 +27,8 @@ export const LeftMenu = (props: React.PropsWithChildren<ILeftMenuProps>) => {
   const modalStore = useModalStore((state) => state);
   const appState = useAppStore((state) => state);
   return (
-    <div className="left-menu flex flex-col w-leftmenu min-h-full border-r border-gray-300 shadow-xl">
-      <header className="w-full border-b flex flex-col">
+    <div className="left-menu flex flex-col w-leftmenu min-h-full border-r border-base-200 shadow-xl">
+      <header className="w-full border-b border-base-200 flex flex-col">
         <Searchbar />
         <div className="collection-actions flex m-2">
           <div className="collection-name">

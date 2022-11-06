@@ -10,7 +10,7 @@ export const CollectionContextMenu = (props: ICollectionMenuProps) => {
   return (
     <ul
       tabIndex={0}
-      className="dropdown-content ring-1 ring-gray-100 menu shadow bg-base-100 rounded-box w-52"
+      className="dropdown-content ring-1 ring-base-200 menu shadow bg-base-100 rounded-box w-52"
     >
       <li>
         <span>

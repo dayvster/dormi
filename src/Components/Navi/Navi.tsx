@@ -10,7 +10,7 @@ export interface IProps {}
 export const Navi = (props: React.PropsWithChildren<IProps>) => {
   const { children } = props;
   return (
-    <div className="flex flex-row w-full py-2 px-4 border-b border-gray-300 items-center ">
+    <div className="flex flex-row w-full py-2 px-4 border-b border-base-300 items-center ">
       <Logo className="mr-2" />
       <GitHubStarButton className="mx-4" />
       <nav className="flex flex-row space-x-2 font-semibold breadcrumbs">

@@ -4,7 +4,7 @@ import Button from "../Buttons/Button";
 export const ModalFooter = () => {
   const closeModal = useModalStore((state) => state.close);
   return (
-    <footer className="flex items-center w-full border-t border-gray-300">
+    <footer className="flex items-center w-full border-t border-base-300">
       <Button onClick={closeModal}>Cancel</Button>
     </footer>
   );

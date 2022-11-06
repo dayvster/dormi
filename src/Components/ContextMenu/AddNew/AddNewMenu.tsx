@@ -2,6 +2,7 @@ import { faNoteSticky, faFolder } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useModalStore } from "../../../store/modalStore";
 import { NewCollectionModal } from "../../Modal/NewCollectionModal";
+import { NewFolderModal } from "../../Modal/NewFolderModal";
 
 export interface IAddNewMenuProps {}
 export const AddNewMenu = (props: IAddNewMenuProps) => {
@@ -12,13 +13,13 @@ export const AddNewMenu = (props: IAddNewMenuProps) => {
   };
 
   const handleNewFolderClick = () => {
-    console.log("New Folder Clicked");
+    modalStore.open(<NewFolderModal />);
   };
 
   return (
     <ul
       tabIndex={0}
-      className="dropdown-content ring-1 ring-gray-100 menu shadow bg-base-100 rounded-box w-52"
+      className="dropdown-content ring-1 ring-base-100 menu shadow bg-base-200 rounded-box w-52"
     >
       <li>
         <span onClick={handleNewCollectionClick}>
@@ -26,7 +27,7 @@ export const AddNewMenu = (props: IAddNewMenuProps) => {
         </span>
       </li>
       <li>
-        <span>
+        <span onClick={handleNewFolderClick}>
           <FontAwesomeIcon icon={faFolder}></FontAwesomeIcon> New Folder
         </span>
       </li>

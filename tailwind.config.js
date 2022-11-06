@@ -25,7 +25,25 @@ module.exports = {
 
   daisyui: {
     styled: true,
-    themes: ["winter"],
+    themes: [
+      {
+        dormi: {
+          primary: "#FF79C6",
+          secondary: "#BD93F9",
+          tertiary: "#8BE9FD",
+          accent: "#50FA7B",
+          error: "#FF5555",
+          info: "#BD93F9",
+          "base-100": "#1d0c33",
+          "base-200": "#190b2b",
+          "base-300": "#0e5c6f",
+          "base-400": "#8BE9FD",
+          "base-content": "#a8edea",
+        },
+      },
+      "lofi",
+      "dark",
+    ],
     base: true,
     utils: true,
     logs: true,

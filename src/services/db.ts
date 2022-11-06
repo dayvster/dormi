@@ -29,6 +29,30 @@ export class DB extends Dexie {
 
 export const Database = new DB();
 
+const _getByUid = async (uid: string, table: Table<any, string>) => {
+  return await table.get(uid);
+};
+
+const _getByName = async (name: string, table: Table<any, string>) => {
+  return await table.where("name").equals(name).first();
+};
+
+const _search = async (
+  column: string,
+  value: string,
+  table: Table<any, string>
+) => {
+  return await table.where(column).startsWithIgnoreCase(value).toArray();
+};
+
+const _checkExists = async (
+  column: string,
+  value: string,
+  table: Table<any, string>
+) => {
+  return (await table.where(column).equals(value).count()) > 0;
+};
+
 export const AddCollection = async (collection: {
   name: string;
   description?: string;
@@ -55,17 +79,14 @@ export const AddCollection = async (collection: {
 };
 
 export const CheckCollectionExists = async (name: string): Promise<boolean> => {
-  return (await Database.collections.where("name").equals(name).count()) > 0;
+  return await _checkExists("name", name, Database.collections);
 };
 
 export const GetCollectionByUID = async (uid: string) => {
-  return await Database.collections.get(uid);
+  return await _getByUid(uid, Database.collections);
 };
 export const SearchCollections = async (search: string) => {
-  return await Database.collections
-    .where("name")
-    .startsWithIgnoreCase(search)
-    .toArray();
+  return await _search("name", search, Database.collections);
 };
 
 export const AddFolderToCollection = async ({
@@ -115,4 +136,37 @@ export const Collections = {
   SearchCollections,
   AddFolderToCollection,
   DeleteCollection,
+};
+export const CheckFolderExists = async (name: string): Promise<boolean> => {
+  return await _checkExists("name", name, Database.folders);
+};
+
+export const AddFolder = async (folder: IFolder) => {
+  const { name, description = "" } = folder;
+  if (!name) return { error: "Folder name is required." };
+  if (await CheckFolderExists(name))
+    return { error: "Folder with that name already exists." };
+
+  const _folder: IFolder = {
+    uid: uuidv4(),
+    name: folder.name,
+    description: folder.description,
+    collection: folder.collection,
+    created: new Date(),
+    updated: new Date(),
+    folders: folder.folders,
+    requests: folder.requests,
+  };
+  Database.folders.add(_folder);
+  return { success: true };
+};
+
+export const GetFolderByUID = async (uid: string) => {
+  return await _getByUid(uid, Database.folders);
+};
+
+export const Folders = {
+  AddFolder,
+  CheckFolderExists,
+  GetFolderByUID,
 };

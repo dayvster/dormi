@@ -20,7 +20,7 @@ export const CollectionsList = (props: ICollectionsListProps) => {
       {collections.map((collection) => (
         <Link href={`/collections/${collection.uid}`} key={collection.uid}>
           <div
-            className={`cursor-pointer flex flex-col p-4 border rounded-xl xs:w-full mobile:w-full tablet:w-[300px] h-[300px]`}
+            className={`cursor-pointer hover:bg-accent hover:text-base-100 hover:shadow-lg hover:shadow-base-300 flex flex-col p-4 border border-base-300 bg-base-200 rounded-xl xs:w-full mobile:w-full tablet:w-[300px] h-[300px]`}
           >
             <div className="name font-semibold">{collection.name}</div>
             <div className="description flex-1">
