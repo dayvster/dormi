@@ -57,3 +57,62 @@ export const AddCollection = async (collection: {
 export const CheckCollectionExists = async (name: string): Promise<boolean> => {
   return (await Database.collections.where("name").equals(name).count()) > 0;
 };
+
+export const GetCollectionByUID = async (uid: string) => {
+  return await Database.collections.get(uid);
+};
+export const SearchCollections = async (search: string) => {
+  return await Database.collections
+    .where("name")
+    .startsWithIgnoreCase(search)
+    .toArray();
+};
+
+export const AddFolderToCollection = async ({
+  collectionUID,
+  folder,
+}: {
+  collectionUID: string;
+  folder: IFolder;
+}) => {
+  const collection = await GetCollectionByUID(collectionUID);
+  if (!collection) return { error: "Collection not found." };
+  if (!folder.name) return { error: "Folder name is required." };
+
+  const newFolder: IFolder = {
+    uid: uuidv4(),
+    name: folder.name,
+    description: folder.description,
+    created: new Date(),
+    updated: new Date(),
+    collection: collectionUID,
+    folders: [],
+    requests: [],
+  };
+  Database.folders.add(newFolder);
+  return { success: true };
+};
+export const DeleteCollection = async (
+  uid: string,
+  deleteData: boolean = false
+) => {
+  const collection = await GetCollectionByUID(uid);
+  if (!collection) return { error: "Collection not found." };
+  if (deleteData) {
+    await Database.collections.delete(uid);
+    await Database.folders.where("collection").equals(uid).delete();
+    await Database.requests.where("collection").equals(uid).delete();
+  } else {
+    await Database.collections.delete(uid);
+  }
+  return { success: true };
+};
+
+export const Collections = {
+  AddCollection,
+  CheckCollectionExists,
+  GetCollectionByUID,
+  SearchCollections,
+  AddFolderToCollection,
+  DeleteCollection,
+};
